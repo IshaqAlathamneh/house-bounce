@@ -22,7 +22,7 @@ users.virtual('token').get(function () {
 users.virtual('capabilities').get(function () {
   let acl = {
     houseOwner: ['createRequest'],
-    admin: ['readRequests', 'updateStatus']
+    admin: ['readRequests', 'createRequest', 'updateStatus']
   };
   return acl[this.role];
 });
