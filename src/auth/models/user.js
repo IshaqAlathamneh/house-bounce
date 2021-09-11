@@ -15,6 +15,7 @@ const users = new mongoose.Schema({
 users.virtual('token').get(function () {
   let tokenObject = {
     username: this.username,
+    role: this.role,
   }
   return jwt.sign(tokenObject, process.env.SECRET)
 });
