@@ -3,6 +3,7 @@
 // Prepare the express app
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 // Internal Resources
 const errorHandler = require('./err-handlers/500.js');
@@ -12,6 +13,9 @@ const appRoutes = require('./auth/routes/routes.js');
 
 // To read from the body
 app.use(express.json());
+
+// To use another port for front-end
+app.use(cors());
 
 // Routes
 app.use(authRoutes);
